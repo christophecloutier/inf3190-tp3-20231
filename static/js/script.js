@@ -1,5 +1,5 @@
 
-//VALIDATION DU FICHIER 'METTRE EN ADOPTION'
+//VALIDATION DU FORMULAIRE 'METTRE EN ADOPTION'
 function validateFormAdoption() {
   var champs = ["nom-animal", "espece-animal", "race-animal", "age-animal", "description-animal", "courriel-animal", "adresse-animal"];
   var validation = true;
@@ -9,11 +9,32 @@ function validateFormAdoption() {
     if (valeur === "") {
       erreur.style.display = "inline-block";
       validation = false;
+    } else if (valeur.indexOf(",") !== -1) {
+      erreur.textContent = "Le champ ne doit pas contenir de virgule.";
+      erreur.style.display = "inline-block";
+      validation = false;
+    } else if (champs[i] === "nom-animal" && !verifierNomAnimal(valeur)) {
+      erreur.innerHTML = "Le nom de l'animal doit contenir entre 3 et 20 caractères alphabétiques.";
+      erreur.style.display = "inline-block";
+      validation = false;
+    } else if (champs[i] === "courriel-animal" && !validerEmail(valeur)) {
+      erreur.style.display = "inline-block";
+      validation = false;
     } else {
       erreur.style.display = "none";
     }
   }
   return validation;
+}
+
+function verifierNomAnimal(nomAnimal) {
+  var regex = /^[a-zA-Z]{3,20}$/;
+  return regex.test(nomAnimal);
+}
+
+function validerEmail(email) {
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
 }
 
 var form = document.getElementById('formulaire-adoption');
