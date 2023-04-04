@@ -16,8 +16,10 @@ from flask import Flask
 from flask import render_template
 from flask import g
 from .database import Database
+from flask import url_for
 
 app = Flask(__name__, static_url_path="", static_folder="static")
+
 
 
 def get_db():
@@ -36,5 +38,11 @@ def close_connection(exception):
 
 @app.route('/')
 def form():
-    # À remplacer par le contenu de votre choix.
-    return render_template('form.html')
+    return render_template('index.html')
+
+@app.route('/adoption')
+def adoption():
+    return render_template('adoption.html')
+
+if __name__ == '__main__':
+    app.run(debug=True, extra_files=['./static/js/script.js'])
