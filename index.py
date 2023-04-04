@@ -17,6 +17,8 @@ from flask import render_template
 from flask import g
 from .database import Database
 from flask import url_for
+from flask import request
+import sqlite3
 
 app = Flask(__name__, static_url_path="", static_folder="static")
 
@@ -43,6 +45,20 @@ def form():
 @app.route('/adoption')
 def adoption():
     return render_template('adoption.html')
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    db = get_db()
+    nom = request.form.get('nom-animal')
+    espece = request.form.get('espece-animal')
+    race = request.form.get('race-animal')
+    age = request.form.get('age-animal')
+    description = request.form.get('description-animal')
+    courriel = request.form.get('courriel-animal')
+    adresse = request.form.get('adresse-animal')
+    ville = request.form.get('ville-animal')
+    db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, 'J5Z5E6')
+    return 'Animal ajouté à la base de données avec succès!'
 
 if __name__ == '__main__':
     app.run(debug=True, extra_files=['./static/js/script.js'])

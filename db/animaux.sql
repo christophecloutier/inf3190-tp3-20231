@@ -1,3 +1,5 @@
+DROP TABLE animaux;
+
 create table animaux (
   id integer primary key,
   nom varchar(25),
