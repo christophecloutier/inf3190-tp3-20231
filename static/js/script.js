@@ -1,7 +1,7 @@
 
 //VALIDATION DU FORMULAIRE 'METTRE EN ADOPTION'
 function validateFormAdoption() {
-  var champs = ["nom-animal", "espece-animal", "race-animal", "age-animal", "description-animal", "courriel-animal", "adresse-animal", "ville-animal"];
+  var champs = ["nom-animal", "espece-animal", "race-animal", "age-animal", "description-animal", "courriel-animal", "adresse-animal", "ville-animal", "codepostal-animal"];
   var validation = true;
   for (var i = 0; i < champs.length; i++) {
     var valeur = document.getElementById(champs[i]).value;
@@ -21,6 +21,9 @@ function validateFormAdoption() {
       erreur.style.display = "inline-block";
       validation = false;
     } else if (champs[i] === "ville-animal" && !validerVilleAnimal(valeur)) {
+      erreur.style.display = "inline-block";
+      validation = false;
+    } else if (champs[i] === "codepostal-animal" && !validerCodePostalAnimal(valeur)) {
       erreur.style.display = "inline-block";
       validation = false;
     } else {
@@ -43,6 +46,11 @@ function validerEmail(email) {
 function validerVilleAnimal(villeAnimal) {
   var regex = /^[a-zA-Z]+$/;
   return regex.test(villeAnimal);
+}
+
+function validerCodePostalAnimal(codePostal) {
+  var regex = /^[A-Za-z]\d[A-Za-z]\s\d[A-Za-z]\d$/;
+  return regex.test(codePostal);
 }
 
 var form = document.getElementById('formulaire-adoption');

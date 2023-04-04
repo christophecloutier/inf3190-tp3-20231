@@ -57,7 +57,8 @@ def submit():
     courriel = request.form.get('courriel-animal')
     adresse = request.form.get('adresse-animal')
     ville = request.form.get('ville-animal')
-    db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, 'J5Z5E6')
+    codePostal = request.form.get('codepostal-animal')
+    db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, codePostal)
     return 'Animal ajouté à la base de données avec succès!'
 
 if __name__ == '__main__':
