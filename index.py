@@ -18,6 +18,7 @@ from flask import g
 from .database import Database
 from flask import url_for
 from flask import request
+from flask import redirect
 import sqlite3
 
 app = Flask(__name__, static_url_path="", static_folder="static")
@@ -59,7 +60,7 @@ def submit():
     ville = request.form.get('ville-animal')
     codePostal = request.form.get('codepostal-animal')
     db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, codePostal)
-    return 'Animal ajouté à la base de données avec succès!'
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True, extra_files=['./static/js/script.js'])
