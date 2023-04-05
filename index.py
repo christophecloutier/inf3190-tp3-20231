@@ -47,6 +47,10 @@ def form():
 def adoption():
     return render_template('adoption.html')
 
+@app.route('/confirmation-adoption')
+def confirmation():
+    return render_template('confirmation_adoption.html')
+
 @app.route('/submit', methods=['POST'])
 def submit():
     db = get_db()
@@ -60,7 +64,7 @@ def submit():
     ville = request.form.get('ville-animal')
     codePostal = request.form.get('codepostal-animal')
     db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, codePostal)
-    return redirect('/')
+    return redirect('/confirmation-adoption')
 
 if __name__ == '__main__':
     app.run(debug=True, extra_files=['./static/js/script.js'])
