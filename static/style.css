@@ -90,3 +90,9 @@ body {
       display: none;
       color: red;
     }
+
+    .container-animal {
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+    }

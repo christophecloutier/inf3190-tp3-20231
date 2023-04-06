@@ -51,6 +51,12 @@ def adoption():
 def confirmation():
     return render_template('confirmation_adoption.html')
 
+@app.route('/animal')
+def show_animal():
+    db = get_db()
+    animal = db.get_animal(1)
+    return render_template('animal.html', animal=animal)
+
 @app.route('/submit', methods=['POST'])
 def submit():
     db = get_db()
