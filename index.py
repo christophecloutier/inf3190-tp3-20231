@@ -72,5 +72,10 @@ def submit():
     db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, codePostal)
     return redirect('/confirmation-adoption')
 
+""" def validation_adoption(nom, espece, race, age, description, courriel, adresse, ville, codePostal):
+    return {nom: {valid: True},
+            espece: {valid: False, message: "l'espece est obligatoire", value: espece}
+    } """
+
 if __name__ == '__main__':
     app.run(debug=True, extra_files=['./static/js/script.js'])
