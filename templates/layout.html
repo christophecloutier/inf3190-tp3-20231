@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Site d'adoption d'animaux</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <header>
-    <h1>Adoption d'animaux</h1>
+    <h1><a href="/" id="lien-accueil">Adoption d'animaux</a></h1>
 </header>
 <nav>
     <a href="/liste">Chiens</a>

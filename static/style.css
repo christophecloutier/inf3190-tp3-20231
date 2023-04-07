@@ -96,3 +96,12 @@ body {
       display: flex;
       flex-direction: column;
     }
+
+    #lien-accueil {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    #lien-accueil:hover {
+      color: grey;
+    }
