@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if not les_animaux%}
+<p> Désolé, nous n'avons pas de d'animaux à offrir en adoption pour l'instant</p>
+{% else %}
+<ul>
+    {% for animal in les_animaux %}
+    {% if animal.espece == "Chat" %}
+    <li>
+        <a href="animal/{{animal.id}}">{{animal.nom}}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

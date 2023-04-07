@@ -15,7 +15,7 @@
 from flask import Flask
 from flask import render_template
 from flask import g
-from .database import Database
+from database import Database
 from flask import request
 from flask import redirect
 
@@ -41,11 +41,32 @@ def form():
     return render_template('index.html')
 
 
-@app.route('/liste')
-def liste():
+@app.route('/listeChien')
+def listeChien():
     db = get_db()
     animaux = db.get_animaux()
-    return render_template('liste.html', les_animaux=animaux)
+    return render_template('listeChien.html', les_animaux=animaux)
+
+
+@app.route('/listeChat')
+def listeChat():
+    db = get_db()
+    animaux = db.get_animaux()
+    return render_template('listeChat.html', les_animaux=animaux)
+
+
+@app.route('/listeOiseau')
+def listeOiseau():
+    db = get_db()
+    animaux = db.get_animaux()
+    return render_template('listeOiseau.html', les_animaux=animaux)
+
+
+@app.route('/listeAutre')
+def listeAutre():
+    db = get_db()
+    animaux = db.get_animaux()
+    return render_template('listeAutre.html', les_animaux=animaux)
 
 
 @app.route('/adoption')
