@@ -105,3 +105,26 @@ body {
     #lien-accueil:hover {
       color: grey;
     }
+
+    .titreListe {
+        text-align: center;
+    }
+
+    .nomAnimal {
+        text-decoration: none;
+        color: cadetblue;
+        font-size: 30px;
+        margin: 50px;
+    }
+    .nomAnimal:hover {
+        color: #333333;
+    }
+
+    .listeAnimaux {
+        list-style: none;
+    }
+
+    #bg {
+        height: 700px;
+        background-image: url("/images/motif.jpg");
+    }

@@ -107,5 +107,11 @@ def submit():
             espece: {valid: False, message: "l'espece est obligatoire", value: espece}
     } """
 
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
 if __name__ == '__main__':
     app.run(debug=True, extra_files=['./static/js/script.js'])

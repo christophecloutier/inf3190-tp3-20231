@@ -3,12 +3,16 @@
 {% if not les_animaux%}
 <p> Désolé, nous n'avons pas de d'animaux à offrir en adoption pour l'instant</p>
 {% else %}
-<ul>
+<h1 class="titreListe">Voici nos chats disponibles pour adoption</h1>
+<br>
+<ul class="listeAnimaux">
     {% for animal in les_animaux %}
     {% if animal.espece == "Chat" %}
     <li>
-        <a href="animal/{{animal.id}}">{{animal.nom}}</a>
+        <a class="nomAnimal" href="animal/{{animal.id}}">{{animal.nom}}</a>
     </li>
+    <br>
+    <br>
     {% endif %}
     {% endfor %}
 </ul>
