@@ -15,14 +15,11 @@
 from flask import Flask
 from flask import render_template
 from flask import g
-from .database import Database
-from flask import url_for
+from database import Database
 from flask import request
 from flask import redirect
-import sqlite3
 
 app = Flask(__name__, static_url_path="", static_folder="static")
-
 
 
 def get_db():
@@ -43,19 +40,23 @@ def close_connection(exception):
 def form():
     return render_template('index.html')
 
+
 @app.route('/adoption')
 def adoption():
     return render_template('adoption.html')
 
+
 @app.route('/confirmation-adoption')
 def confirmation():
     return render_template('confirmation_adoption.html')
+
 
 @app.route('/animal')
 def show_animal():
     db = get_db()
     animal = db.get_animal(1)
     return render_template('animal.html', animal=animal)
+
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -71,6 +72,7 @@ def submit():
     codePostal = request.form.get('codepostal-animal')
     db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, codePostal)
     return redirect('/confirmation-adoption')
+
 
 """ def validation_adoption(nom, espece, race, age, description, courriel, adresse, ville, codePostal):
     return {nom: {valid: True},

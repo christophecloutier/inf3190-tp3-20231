@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header>
-    <h1>Adoption d'animaux</h1>
-</header>
-<nav>
-    <a href="/animal">Chiens</a>
-    <a href="#">Chats</a>
-    <a href="#">Oiseaux</a>
-    <a href="#">Autres</a>
-    <a href="/adoption">Mettre votre animal en adoption</a>
-</nav>
+{% extends "layout.html" %}
+{% block content %}
 <section id="centre_accueil">
     <div class="card">
         <img class="img_accueil" src="/images/chien.jpg" alt="Chien">
@@ -41,8 +25,4 @@
         <a href="#">En savoir plus</a>
     </div>
 </section>
-<footer>
-    <p>Droits d'auteur &copy;Adoption d'animaux</p>
-</footer>
-</body>
-</html>
+{% endblock %}
