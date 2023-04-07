@@ -41,6 +41,13 @@ def form():
     return render_template('index.html')
 
 
+@app.route('/liste')
+def liste():
+    db = get_db()
+    animaux = db.get_animaux()
+    return render_template('liste.html', les_animaux=animaux)
+
+
 @app.route('/adoption')
 def adoption():
     return render_template('adoption.html')
@@ -51,10 +58,10 @@ def confirmation():
     return render_template('confirmation_adoption.html')
 
 
-@app.route('/animal')
-def show_animal():
+@app.route('/animal/<idAnimal>')
+def show_animal(idAnimal):
     db = get_db()
-    animal = db.get_animal(1)
+    animal = db.get_animal(idAnimal)
     return render_template('animal.html', animal=animal)
 
 
