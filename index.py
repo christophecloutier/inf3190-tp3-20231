@@ -15,7 +15,7 @@
 from flask import Flask
 from flask import render_template
 from flask import g
-from database import Database
+from .database import Database
 from flask import request
 from flask import redirect
 import random
@@ -52,7 +52,7 @@ def get_nbr_animaux():
 def get_nbr_random():
     nbr = get_nbr_animaux()
     print(nbr)
-    return random.sample(range(1, nbr), 5)
+    return random.sample(range(1, nbr + 1), 5)
 
 
 def get_animaux_en_vedette():
@@ -63,7 +63,6 @@ def get_animaux_en_vedette():
     for int in liste:
         en_vedette.append(db.get_animal(int))
     return en_vedette
-
 
 
 @app.route('/listeChien')
