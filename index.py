@@ -18,6 +18,7 @@ from flask import g
 from database import Database
 from flask import request
 from flask import redirect
+import random
 
 app = Flask(__name__, static_url_path="", static_folder="static")
 
@@ -38,7 +39,31 @@ def close_connection(exception):
 
 @app.route('/')
 def form():
-    return render_template('index.html')
+    liste = get_animaux_en_vedette()
+    return render_template('index.html', animaux_en_vedette=liste)
+
+
+def get_nbr_animaux():
+    db = get_db()
+    animaux = db.get_animaux()
+    return len(animaux)
+
+
+def get_nbr_random():
+    nbr = get_nbr_animaux()
+    print(nbr)
+    return random.sample(range(1, nbr), 5)
+
+
+def get_animaux_en_vedette():
+    db = get_db()
+    en_vedette = []
+    liste = get_nbr_random()
+    print(liste)
+    for int in liste:
+        en_vedette.append(db.get_animal(int))
+    return en_vedette
+
 
 
 @app.route('/listeChien')

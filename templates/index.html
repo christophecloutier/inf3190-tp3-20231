@@ -25,4 +25,15 @@
         <a href="#">En savoir plus</a>
     </div>
 </section>
+
+<section>
+    <ul>
+        {% for animal in animaux_en_vedette%}
+        <li>
+                <a class="nomAnimal" href="animal/{{animal.id}}">{{animal.nom}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</section>
 {% endblock %}
