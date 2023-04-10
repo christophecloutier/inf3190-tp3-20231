@@ -7,14 +7,15 @@ function validateFormAdoption() {
     var valeur = document.getElementById(champs[i]).value;
     var erreur = document.getElementById("erreur-" + champs[i]);
     if (valeur === "") {
+      erreur.textContent = "Erreur : Veuillez remplir ce champ avant de soumettre.";
       erreur.style.display = "inline-block";
       validation = false;
     } else if (valeur.indexOf(",") !== -1) {
-      erreur.textContent = "Le champ ne doit pas contenir de virgule.";
+      erreur.textContent = "Erreur : Le champ ne doit pas contenir de virgule.";
       erreur.style.display = "inline-block";
       validation = false;
     } else if (champs[i] === "nom-animal" && !verifierNomAnimal(valeur)) {
-      erreur.innerHTML = "Le nom de l'animal doit contenir entre 3 et 20 caractères alphabétiques.";
+      erreur.innerHTML = "Erreur : Le nom de l'animal doit contenir entre 3 et 20 caractères alphabétiques.";
       erreur.style.display = "inline-block";
       validation = false;
     } else if (champs[i] === "courriel-animal" && !validerEmail(valeur)) {
