@@ -5,16 +5,23 @@
 {% else %}
 <h1 class="titreListe">Voici nos chiens disponibles pour adoption</h1>
 <br>
-<ul class="listeAnimaux">
-    {% for animal in les_animaux %}
-    {% if animal.espece == "Chien" %}
-    <li>
-        <a class="nomAnimal" href="animal/{{animal.id}}">{{animal.nom}}</a>
+<ul class="displayListe">
+    <li class="displayLigne">
+        <ul class="listeAnimaux">
+            {% for animal in les_animaux %}
+            {% if animal.espece == "Chien" %}
+            <li>
+                <a class="nomAnimal" href="animal/{{animal.id}}">{{animal.nom}}</a>
+            </li>
+            <br>
+            <br>
+            {% endif %}
+            {% endfor %}
+        </ul>
     </li>
-    <br>
-    <br>
-    {% endif %}
-    {% endfor %}
+    <li class="displayLigne">
+        <img class="displayImg" src="images/chien.jpg" alt="chien">
+    </li>
 </ul>
 {% endif %}
 {% endblock %}

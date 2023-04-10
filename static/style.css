@@ -141,3 +141,19 @@ body {
     background-color: #fff;
     background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
     }
+
+    .displayListe {
+        display: flex;
+        flex-flow: row;
+        list-style: none;
+    }
+    .displayLigne{
+        width: 800px;
+        height: 500px;
+    }
+    .displayImg {
+        width: 500px;
+        border-radius: 10%;
+    }
+
+    

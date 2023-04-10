@@ -15,7 +15,7 @@
 from flask import Flask
 from flask import render_template
 from flask import g
-from .database import Database
+from database import Database
 from flask import request
 from flask import redirect
 
