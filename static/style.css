@@ -67,6 +67,7 @@ body {
       color: #fff;
       padding: 10px;
       text-align: center;
+      margin-top: auto;
     }
     .img_accueil{
         height: 300px;
@@ -125,7 +126,7 @@ body {
     }
 
     #bg {
-        height: 700px;
+        height: auto;
         background-image: url("/images/motif.jpg");
     }
 
@@ -142,6 +143,13 @@ body {
     background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
     }
 
+    .container-question input {
+      display: inline-block;
+      width: 100%;
+      height: 20px;
+      margin-bottom: 10px;
+  }
+
     .displayListe {
         display: flex;
         flex-flow: row;
@@ -154,4 +162,31 @@ body {
     .displayImg {
         width: 500px;
         border-radius: 10%;
+    }
+
+    main form {
+      width: 75%;
+    }
+
+    label {
+      display: inline-block;
+      width: 220px;
+    }
+
+    button[type="submit"] {
+      display: inline-block;
+      background-color: #fff;
+      color: black;
+      padding: 8px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      display: block;
+      margin: 0 20%;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: grey;
     }
