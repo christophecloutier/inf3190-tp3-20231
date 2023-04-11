@@ -83,8 +83,7 @@ body {
 
     main {
       margin: 20px;
-      display: flex;
-      flex-wrap: wrap;
+      display: block;
     }
 
     .erreur-adoption {
@@ -189,4 +188,9 @@ body {
     
     button[type="submit"]:hover {
       background-color: grey;
+    }
+
+    #title-adoption {
+      text-align: left;
+      margin-left: 10%;
     }

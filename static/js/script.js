@@ -7,7 +7,7 @@ function validateFormAdoption() {
     var valeur = document.getElementById(champs[i]).value;
     var erreur = document.getElementById("erreur-" + champs[i]);
     if (valeur === "") {
-      erreur.textContent = "Erreur : Veuillez remplir ce champ avant de soumettre.";
+      /* erreur.textContent = "Erreur : Veuillez remplir ce champ avant de soumettre."; */
       erreur.style.display = "inline-block";
       validation = false;
     } else if (valeur.indexOf(",") !== -1) {
