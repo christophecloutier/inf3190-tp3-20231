@@ -52,7 +52,7 @@ def get_nbr_animaux():
 def get_nbr_random():
     nbr = get_nbr_animaux()
     print(nbr)
-    return random.sample(range(1, nbr + 1), 5)
+    return random.sample(range(1, nbr + 1), 6)
 
 
 def get_animaux_en_vedette():
@@ -124,12 +124,6 @@ def submit():
     codePostal = request.form.get('codepostal-animal')
     db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, codePostal)
     return redirect('/confirmation-adoption')
-
-
-""" def validation_adoption(nom, espece, race, age, description, courriel, adresse, ville, codePostal):
-    return {nom: {valid: True},
-            espece: {valid: False, message: "l'espece est obligatoire", value: espece}
-    } """
 
 
 @app.errorhandler(404)

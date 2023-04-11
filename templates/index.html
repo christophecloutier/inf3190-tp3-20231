@@ -28,11 +28,9 @@
 
 <section id="animaux-vedette">
     <h2 id="title-animaux-vedette">Nos animaux en vedette</h2>
-    <ul>
+    <div class="container-animaux-vedette">
         {% for animal in animaux_en_vedette%}
-        <li>
-            <a class="nomAnimal" href="animal/{{animal.id}}">{{animal.nom}}</a>
-        </li>
+        <div class="card">
         {% if animal.espece == "Chien" %}
             <img src="/images/chien.jpg" alt="chien">
         {% elif animal.espece == "Chat" %}
@@ -42,8 +40,10 @@
         {% else %}
             <img src="/images/cameleon.jpg" alt="cameleon">
         {% endif %}
+        <a class="nomAnimal" href="animal/{{animal.id}}">{{animal.nom}}</a>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 
 </section>
 {% endblock %}
