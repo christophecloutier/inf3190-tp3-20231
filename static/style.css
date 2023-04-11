@@ -194,3 +194,28 @@ body {
       text-align: left;
       margin-left: 10%;
     }
+
+    #title-confirmation-adoption {
+      text-align: center;
+      min-height: 500px;
+      padding-top: 10%;
+    }
+
+    #title-confirmation-adoption a {
+      text-decoration: none;
+      color: cadetblue;
+      font-size: 20px;
+    }
+
+    #title-confirmation-adoption a:hover {
+      color: #333333;
+    }
+
+    #animaux-vedette {
+      display: block;
+    }
+
+    #title-animaux-vedette {
+      text-align: center;
+      padding-top: 2%;
+    }
