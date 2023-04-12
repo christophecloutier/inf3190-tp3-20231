@@ -235,3 +235,19 @@ body {
       flex-wrap: wrap;
       flex-direction: row;
     }
+
+    #title-erreur-404 {
+      text-align: center;
+      min-height: 500px;
+      padding-top: 10%;
+    }
+
+    #title-erreur-404 a {
+      text-decoration: none;
+      color: cadetblue;
+      font-size: 20px;
+    }
+
+    #title-erreur-404 a:hover {
+      color: #333333;
+    }

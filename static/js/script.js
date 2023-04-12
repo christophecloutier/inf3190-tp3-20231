@@ -7,7 +7,6 @@ function validateFormAdoption() {
     var valeur = document.getElementById(champs[i]).value;
     var erreur = document.getElementById("erreur-" + champs[i]);
     if (valeur === "") {
-      /* erreur.textContent = "Erreur : Veuillez remplir ce champ avant de soumettre."; */
       erreur.style.display = "inline-block";
       validation = false;
     } else if (valeur.indexOf(",") !== -1) {
@@ -34,14 +33,14 @@ function validateFormAdoption() {
   return validation;
 }
 
-function verifierNomAnimal(nomAnimal) {
+function verifieromAnimal(nomAnimal) {
   var regex = /^[a-zA-Z]{3,20}$/;
   return regex.test(nomAnimal);
 }
 
 function validerEmail(email) {
-  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
+  var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
 }
 
 function validerVilleAnimal(villeAnimal) {
@@ -54,9 +53,7 @@ function validerCodePostalAnimal(codePostal) {
   return regex.test(codePostal);
 }
 
+
+
 var form = document.getElementById('formulaire-adoption');
 form.addEventListener('submit', validateFormAdoption);
-form.onsubmit = function() {
-  // Empêchez le formulaire de se soumettre si les champs ne sont pas remplis
-  return validateFormAdoption();
-};

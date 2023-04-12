@@ -19,6 +19,7 @@ from .database import Database
 from flask import request
 from flask import redirect
 import random
+import re
 
 app = Flask(__name__, static_url_path="", static_folder="static")
 
@@ -121,8 +122,8 @@ def submit():
     courriel = request.form.get('courriel-animal')
     adresse = request.form.get('adresse-animal')
     ville = request.form.get('ville-animal')
-    codePostal = request.form.get('codepostal-animal')
-    db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, codePostal)
+    code_postal = request.form.get('codepostal-animal')
+    db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, code_postal)
     return redirect('/confirmation-adoption')
 
 
