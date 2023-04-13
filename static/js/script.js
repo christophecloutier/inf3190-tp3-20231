@@ -33,7 +33,7 @@ function validateFormAdoption() {
   return validation;
 }
 
-function verifieromAnimal(nomAnimal) {
+function verifierNomAnimal(nomAnimal) {
   var regex = /^[a-zA-Z]{3,20}$/;
   return regex.test(nomAnimal);
 }
