@@ -57,3 +57,7 @@ function validerCodePostalAnimal(codePostal) {
 
 var form = document.getElementById('formulaire-adoption');
 form.addEventListener('submit', validateFormAdoption);
+form.onsubmit = function() {
+  // Empêchez le formulaire de se soumettre si les champs ne sont pas remplis
+  return validateFormAdoption();
+};
