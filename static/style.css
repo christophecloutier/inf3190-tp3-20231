@@ -132,7 +132,7 @@ body {
     }
 
     #bg {
-        height: auto;
+        min-height: auto;
         background-image: url("/images/motif.jpg");
     }
 
