@@ -103,6 +103,10 @@ def adoption():
 def confirmation():
     return render_template('confirmation_adoption.html')
 
+@app.route('/erreur-adoption')
+def erreur_adoption():
+    return render_template('erreur_adoption.html')
+
 
 @app.route('/animal/<idAnimal>')
 def show_animal(idAnimal):
@@ -110,6 +114,30 @@ def show_animal(idAnimal):
     animal = db.get_animal(idAnimal)
     return render_template('animal.html', animal=animal)
 
+
+def verifier_nom_animal(nom_animal):
+    regex = r'^[a-zA-Z]{3,20}$'
+    return bool(re.match(regex, nom_animal))
+
+def valider_courriel(courriel):
+    regex = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
+    return bool(re.match(regex, courriel))
+
+def valider_ville_animal(ville_animal):
+    regex = r'^[a-zA-Z]+$'
+    return bool(re.match(regex, ville_animal))
+
+def valider_code_postal_animal(code_postal):
+    regex = r'^[A-Za-z]\d[A-Za-z]\s\d[A-Za-z]\d$'
+    return bool(re.match(regex, code_postal))
+
+def validation_formulaire(nom, espece, race, age, description, courriel, adresse, ville, code_postal):
+    champs = [nom, espece, race, age, description, courriel, adresse, ville, code_postal]
+    for i in range(len(champs)):
+        if (champs[i] == "") or ("," in champs[i]) or (i == 0 and not verifier_nom_animal(nom)) or (i== 5 and not valider_courriel(courriel)) or (i == 7 and not valider_ville_animal(ville)) or (i == 8 and not valider_code_postal_animal(code_postal)):
+            return False
+        else:
+            return True
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -123,6 +151,8 @@ def submit():
     adresse = request.form.get('adresse-animal')
     ville = request.form.get('ville-animal')
     code_postal = request.form.get('codepostal-animal')
+    if not validation_formulaire(nom, espece, race, age, description, courriel, adresse, ville, code_postal):
+        return redirect('/erreur-adoption')
     db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, code_postal)
     return redirect('/confirmation-adoption')
 
