@@ -120,6 +120,10 @@ body {
     .nomAnimal:hover {
         color: #333333;
     }
+    .descrAnimal {
+        font-size: 20px;
+        margin: 10px 50px;
+    }
 
     .carteAnimal {
       font-size: 18px;
@@ -250,4 +254,9 @@ body {
 
     #title-erreur-404 a:hover {
       color: #333333;
+    }
+
+    #mail {
+        decoration: none;
+        color: black;
     }

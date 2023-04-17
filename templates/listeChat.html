@@ -12,6 +12,7 @@
             {% if animal.espece == "Chat" %}
             <li>
                 <a class="nomAnimal" href="animal/{{animal.id}}">{{animal.nom}}</a>
+                <p class="descrAnimal">{{animal.description}}</p>
             </li>
             {% endif %}
             {% endfor %}
